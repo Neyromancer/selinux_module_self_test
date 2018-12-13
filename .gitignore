@@ -1,0 +1,19 @@
+*.[oa]
+*~
+*.exe
+*.swp
+*.user
+*.autosave
+
+*.sql
+*.sqlite
+*.pri
+*.pro
+*.pro.user
+
+# ignore all files in backup directory
+backup/
+src/client/build-space_shooter*/*
+src/client/view/build-space_shooter*/*
+
+sour*
