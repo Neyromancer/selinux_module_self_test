@@ -1,8 +1,8 @@
 /// \file selinux_version_test.h
 /// \brief
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
-/// \version 1.0.0.0
-/// \date 14.12.2018
+/// \version 1.0.0.1
+/// \date 21.12.2018
 
 #ifndef SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_VERSION_TEST_H_
 #define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_VERSION_TEST_H_
@@ -20,7 +20,7 @@ class SelinuxVersionTest: public SelinuxSystemTest {
   SelinuxVersionTest() {}
 
   /// \brief Деструктор класса SelinuxVersionTest.
-  ~SelinuxVersionTest() - default;
+  ~SelinuxVersionTest() = default;
 
   /// \brief Конструктор копирования класса SelinuxVersionTest.
   /// \param[in] selinux_version_test Объект класса SelinuxVersionTest.
@@ -38,7 +38,7 @@ class SelinuxVersionTest: public SelinuxSystemTest {
   /// \brief Оператор присваивания перемещением класса SelinuxVersionTest.
   /// \param[in] selinux_version_test Объект класса SelinuxVersionTest.
   /// \return Объект класса SelinuxVersionTest.
-  SelinuxVersoinTest &operator=(SelinuxVersionTest &&selinux_version_test) = default;
+  SelinuxVersionTest &operator=(SelinuxVersionTest &&selinux_version_test) = default;
 
   /// \brief Возвращает версию ядра SELinux.
   /// \return Версия ядра SELinux.
@@ -46,10 +46,19 @@ class SelinuxVersionTest: public SelinuxSystemTest {
     return selinux_version_;
   }
 
-  /// \brief Парсит директорию.
-  void ParseSelinuxPolicyDir();
+  /// \brief Определяет и устанавливает версию ядра SELinux.
+  void SetSelinuxVersion();
+
+  /// \brief Выводит в консоль информацию по версии ядра SELinux.
+  void PrintSelinuxVersion();
 
  private:
+  /// \brief Парсит директорию.
+  /// \param[in] path Путь до директории.
+  /// \return Возвращает файл имеющий формат ядра SELinux.
+  std::string ParseSelinuxPolicyDir(const std::string &path);
+  std::string ParseSelinuxPolicyDir(std::string &&path);
+
   int selinux_version_{};
   
 };

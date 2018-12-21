@@ -30,6 +30,7 @@ void SelinuxTypeTest::ParseSelinuxConfig() {
 
 static std::string GetParameterValue(const std::string &fname, 
                                      const std::string &parameter) {
+  std::string res{};
   std::ifstream fd;
   fd.open(fname);
   if (fd.is_open()) {
@@ -41,8 +42,8 @@ static std::string GetParameterValue(const std::string &fname,
         result = line.substr(0, parameter.size() + 1);
         if (result.find("#") == std::string::npos && 
             result.find("=") != std::string::npos) {
-          auto tmp = line.substr(result.size());
-          return tmp;
+          result = line.substr(result.size());
+          return res;
         }
       }
     }
@@ -50,7 +51,7 @@ static std::string GetParameterValue(const std::string &fname,
   } else {
     std::cout << "Can't open file " << fname << std::endl;
   }
-  return "";
+  return res;
 }
 } // namespace security_self_tests
 } // namespace fintech

@@ -1,8 +1,8 @@
 /// \file selinux_system_test.h
 /// \brief
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
-/// \version 1.0.0.0
-/// \date 07.12.2018
+/// \version 1.0.0.1
+/// \date 21.12.2018
 
 #ifndef SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_SYSTEM_TEST_H_
 #define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_SYSTEM_TEST_H_
@@ -55,15 +55,22 @@ class SelinuxSystemTest {
       return path_;
   }
 
-  /// \brief Возвращает статус файла.
-  /// \return Статус файла.
+  /// \brief Возвращает статус пути.
+  /// \return Статус пути.
   inline bool IsFileExist() const noexcept { 
     return is_file_exist_; 
+  }
+
+  /// \brief Возвращает статус пути.
+  /// \return Статус пути.
+  inline bool IsDirExist() const noexcept { 
+    return is_dir_exist_; 
   }
 
  private:
   std::string path_{};
   bool is_file_exist_{false};
+  bool is_dir_exist_{false};
  
 };
 }   // namespace security_self_tests

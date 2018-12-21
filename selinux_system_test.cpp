@@ -1,8 +1,8 @@
 /// \file selinux_system_test.cpp
 /// \brief
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
-/// \version 1.0.0.0
-/// \date 05.12.2018
+/// \version 1.0.0.1
+/// \date 21.12.2018
 
 #include "selinux_system_test.h"
 
@@ -13,6 +13,7 @@ extern "C" {
 }
 
 #include <cstdio>
+#include <iostream>
 #include <string>
 #include <stdexcept>
 
@@ -24,10 +25,9 @@ void SelinuxSystemTest::SetPath(const std::string &path) {
   if (stat(path.c_str(), &sb) == -1)
     throw std::invalid_argument("wrong path");
 
-  /*   this block think that passed file is not a reg file.
-    if (S_IFREG != (sb.st_mode & S_IFMT)) {
-    throw std::invalid_argument("wrong path");
-  }*/
+  if (S_IFDIR == (sb.st_mode & S_IFMT)) {
+    is_dir_exist_ = true;
+  }
 
   path_ = path;
 
@@ -39,10 +39,9 @@ void SelinuxSystemTest::SetPath(std::string &&path) {
   if (stat(path.c_str(), &sb) == -1)
     throw std::invalid_argument("wrong path");
 
-  /*   this block think that passed file is not a reg file.
-    if (S_IFREG != (sb.st_mode & S_IFMT)) {
-    throw std::invalid_argument("wrong path");
-  }*/
+  if (S_IFDIR == (sb.st_mode & S_IFMT)) {
+    is_dir_exist_ = true;
+  }
 
   path_ = path;
 
