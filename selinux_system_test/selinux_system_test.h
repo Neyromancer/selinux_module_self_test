@@ -9,8 +9,10 @@
 
 #include <string>
 
+/// \namespace fintech.
 /// \brief Область видимости проектов АО "ФИНТЕХ".
 namespace fintech {
+/// \namespace security_self_tests.
 /// \brief Область видимости системы самотестирования.
 namespace security_self_tests {
 /// \class SelinuxSystemTest selinux_system_test.h

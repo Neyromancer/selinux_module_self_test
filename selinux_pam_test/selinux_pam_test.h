@@ -7,10 +7,12 @@
 #ifndef SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_PAM_TEST_H_
 #define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_PAM_TEST_H_
 
-#include "selinux_system_test.h"
+#include "../selinux_system_test/selinux_system_test.h"
 
+/// \namespace fintech.
 /// \brief Область видимости проектов АО "ФИНТЕХ".
 namespace fintech {
+/// \namespace security_self_tests.
 /// \brief Область видимости системы самотестирования.
 namespace security_self_tests {
 /// \class SelinuxPamTest selinux_pam_test.h

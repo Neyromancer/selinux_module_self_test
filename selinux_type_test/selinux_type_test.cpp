@@ -30,20 +30,19 @@ void SelinuxTypeTest::ParseSelinuxConfig() {
 
 static std::string GetParameterValue(const std::string &fname, 
                                      const std::string &parameter) {
-  std::string res{};
+  std::string fres{};
   std::ifstream fd;
   fd.open(fname);
   if (fd.is_open()) {
-    std::string result {};
-    std::string line {};
+    std::string result{};
+    std::string line{};
     while (std::getline(fd, line)) {
-      auto res = line.find(parameter);
+      res = line.find(parameter);
       if (res != std::string::npos) {
         result = line.substr(0, parameter.size() + 1);
         if (result.find("#") == std::string::npos && 
             result.find("=") != std::string::npos) {
-          result = line.substr(result.size());
-          return res;
+          fres = line.substr(result.size());
         }
       }
     }
@@ -51,7 +50,7 @@ static std::string GetParameterValue(const std::string &fname,
   } else {
     std::cout << "Can't open file " << fname << std::endl;
   }
-  return res;
+  return fres;
 }
 } // namespace security_self_tests
 } // namespace fintech

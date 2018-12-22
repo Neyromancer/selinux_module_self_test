@@ -29,9 +29,10 @@ void SelinuxSystemTest::SetPath(const std::string &path) {
     is_dir_exist_ = true;
   }
 
-  path_ = path;
+  if (!is_dir_exist_)
+    is_file_exist_ = true; 
 
-  is_file_exist_ = true; 
+  path_ = path;
 }
 
 void SelinuxSystemTest::SetPath(std::string &&path) {
@@ -43,9 +44,10 @@ void SelinuxSystemTest::SetPath(std::string &&path) {
     is_dir_exist_ = true;
   }
 
-  path_ = path;
+  if (!is_dir_exist_)
+    is_file_exist_ = true; 
 
-  is_file_exist_ = true; 
+  path_ = path;
 }
 }  // namespace security_self_tests
 }  // namespace fintech
