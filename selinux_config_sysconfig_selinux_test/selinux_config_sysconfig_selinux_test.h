@@ -7,7 +7,9 @@
 #ifndef SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_CONFIG_SYSCONFIG_SELINUX_TEST_H_
 #define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_CONFIG_SYSCONFIG_SELINUX_TEST_H_
 
-#include "../selinux_system_test/selinux_system_test.h"
+#include <string>
+
+#include "../selinux_config_test/selinux_config_test.h"
 
 /// \namespace fintech.
 /// \brief Область видимости проектов АО "ФИНТЕХ".
@@ -19,7 +21,7 @@ namespace security_self_tests {
 /// \class SelinuxConfigSysconfigSelinuxTest
 /// \class selinux_config_sysconfig_selinux_test.h
 /// \brief Класс тестирования конфигурационного файла selinux модуля SELinux.
-class SelinuConfigSysconfigSelinuxTest: public SelinuxSystemTest {
+class SelinuxConfigSysconfigSelinuxTest: public SelinuxConfigTest {
  public:
   /// \brief Конструктор класса SelinuxConfigSysconfigSelinuxTest.
   SelinuxConfigSysconfigSelinuxTest() {}
@@ -30,13 +32,13 @@ class SelinuConfigSysconfigSelinuxTest: public SelinuxSystemTest {
   /// \brief Конструктор копирования класса SelinuxConfigSysconfigSelinuxTest.
   /// \param[in] selinux_config_sysconfig_selinux_test Объект класса
   /// \param[in] SelinuxConfigSysconfigSelinuxTest.
-  SelinuxConfigSysconfigSelinuxTest(const SelinuxConfigSysconfigTest
+  SelinuxConfigSysconfigSelinuxTest(const SelinuxConfigSysconfigSelinuxTest
                                     &selinux_config_sysconfig_test) = delete;
 
   /// \brief Конструктор перемещения класса SelinuxConfigSysconfigSelinuxTest.
   /// \prarm[in] selinux_config_sysconfig_selinux_test Объект класса
   /// \param[in] SelinuxConfigSysconfigSelinuxTest.
-  SelinuxConfigSysconfigSelinuxTest(SelinuxConfigSysconfigTest
+  SelinuxConfigSysconfigSelinuxTest(SelinuxConfigSysconfigSelinuxTest
                                     &&selinux_config_sysconfig_test) = default;
 
   /// \brief Оператор присваивания копированием класса
@@ -45,7 +47,7 @@ class SelinuConfigSysconfigSelinuxTest: public SelinuxSystemTest {
   /// \param[in] SelinuxConfigSysconfigSelinuxTest.
   /// \return Объект класса SelinuxConfigSysconfigSelinuxTest.
   SelinuxConfigSysconfigSelinuxTest &operator=(
-  const &SelinuxConfigSysconfigSelinuxTest selinux_config_sysconfig_selinux_test
+  const SelinuxConfigSysconfigSelinuxTest &selinux_config_sysconfig_selinux_test
   ) = delete;
 
   /// \brief Оператор присваивания перемещением класса
@@ -53,7 +55,7 @@ class SelinuConfigSysconfigSelinuxTest: public SelinuxSystemTest {
   /// \param[in] selinux_config_sysconfig_selinux_test Объект класса
   /// \param[in] SelinuxConfigSysconfigSelinuxTest.
   SelinuxConfigSysconfigSelinuxTest &operator=(
-  &&SelinuxConfigSysconfigSelinuxTest selinux_config_sysconfig_selinux_test
+  SelinuxConfigSysconfigSelinuxTest &&selinux_config_sysconfig_selinux_test
   ) = default;
 
   /// \brief Парсит конфигурационный файл.
@@ -61,6 +63,9 @@ class SelinuConfigSysconfigSelinuxTest: public SelinuxSystemTest {
 
   /// \brief Выводит сообщение по ходу работы программы.
   void Print() const;
+
+ private:
+  bool IsValid(const std::string &);
 
 };
 }  // namespace security_self_tets

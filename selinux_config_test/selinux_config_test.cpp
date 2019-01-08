@@ -15,11 +15,11 @@ extern "C" {
 namespace fintech {
 namespace security_self_tests {
 
-void SelinuxConfigTest::ParseConfigFile() {
-  if (IsFileExist()) {
-    CalcFileSize();
-  }
-}
+//void SelinuxConfigTest::ParseConfigFile() {
+//  if (IsFileExist()) {
+//    CalcFileSize();
+//  }
+//}
 
 void SelinuxConfigTest::CalcFileSize() {
   struct stat sb;

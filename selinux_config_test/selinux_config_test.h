@@ -8,6 +8,7 @@
 #define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_CONFIG_TEST_H_
 
 #include <cstdint>
+#include <stdexcept>
 
 #include "../selinux_system_test/selinux_system_test.h"
 
@@ -56,8 +57,8 @@ class SelinuxConfigTest: public SelinuxSystemTest {
   }
 
   /// \brief Устанавливает валидность конфигурационного файла.
-  inline void ValidateConfig(bool status) const noexcept {
-    is_config_valid = status;
+  inline void ValidateConfig(bool status) noexcept {
+    is_config_valid_ = status;
   }
 
   /// \brief 
@@ -71,10 +72,10 @@ class SelinuxConfigTest: public SelinuxSystemTest {
     return config_file_size_ == 0;
   }
 
- private:
   /// \brief Определяет размер файла.
   void CalcFileSize();
 
+ private:
   uint64_t config_file_size_{};
   bool is_config_valid_{false};
 
