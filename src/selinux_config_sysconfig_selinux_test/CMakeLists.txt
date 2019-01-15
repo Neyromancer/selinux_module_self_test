@@ -1,0 +1,3 @@
+add_library(selinux_config_sysconfig_selinux_test
+selinux_config_sysconfig_selinux_test.cpp)
+target_link_libraries(selinux_config_sysconfig_selinux_test selinux_config_test)
