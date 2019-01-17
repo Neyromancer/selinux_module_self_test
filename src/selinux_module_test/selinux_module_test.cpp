@@ -1,5 +1,6 @@
 /// \file selinux_module_test.cpp
-/// \brief
+/// \brief src файл содержащий определения методов класса тестирования наличия
+/// \brief модуля SELinux.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
 /// \version 1.0.0.2
 /// \date 12.12.2018

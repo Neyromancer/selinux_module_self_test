@@ -1,5 +1,5 @@
 /// \file selinux_pam_test.h
-/// \brief
+/// \brief Заголовочный файл класса SELinuxPamTest.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
 /// \version 1.0.0.0
 /// \date 13.12.2018
@@ -15,7 +15,9 @@ namespace fintech {
 /// \namespace security_self_tests.
 /// \brief Область видимости системы самотестирования.
 namespace security_self_tests {
-/// \class SelinuxPamTest selinux_pam_test.h
+/// \class SelinuxPamTest.
+/// \class SelinuxPamTest selinux_pam_test.h.
+/// \brief Класс проверки наличия записи о SELinux в PAM-модулях.
 class SelinuxPamTest: public SelinuxSystemTest {
  public:
   /// \brief Конструктор класса SelinuxPamTest.

@@ -1,8 +1,8 @@
 /// \file selinux_type_test.cpp
-/// \brief
+/// \brief Source файл класса SelinuxTypeTest.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
-/// \version 1.0.0.0
-/// \date 12.12.2018
+/// \version 1.0.0.1
+/// \date 17.01.2019
 
 #include "selinux_type_test.h"
 

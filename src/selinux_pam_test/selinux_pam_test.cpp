@@ -1,5 +1,5 @@
 /// \file selinux_pam_test.cpp
-/// \brief
+/// \brief Source файл класса SELinuxPamTest.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
 /// \version 1.0.0.0
 /// \date 13.12.2018

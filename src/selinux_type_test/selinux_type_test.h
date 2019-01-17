@@ -1,8 +1,8 @@
 /// \file selinux_type_test.h
-/// \brief
+/// \brief Заголовочный файл класса SelinuxTypeTest.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
-/// \version 1.0.0.0
-/// \date 12.12.2018
+/// \version 1.0.0.1
+/// \date 17.01.2019
 
 #ifndef SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_TYPE_TEST_H_
 #define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_TYPE_TEST_H_
@@ -17,7 +17,8 @@ namespace fintech {
 /// \namespace security_self_tests.
 /// \brief Область видимости системы самотестирования.
 namespace security_self_tests {
-/// \class SelinuxTypeTest selinux_type_test.h
+/// \class SelinuxTypeTest selinux_type_test.h.
+/// \brief Класс проверки режима, в котором установлен SELinux.
 class SelinuxTypeTest: public SelinuxSystemTest {
  public:
   /// \brief Конструктор класса SelinuxTypeTest.

@@ -64,7 +64,7 @@ bool SelinuxConfigSysconfigSelinuxTest::IsValid(const std::string &parameter) {
   } else {
     std::cout << "Coldn't open the file " << GetPath() << std::endl;
   }
-  std::cout << "status is " << ((status) ? "true" : "false") << std::endl;
+  //std::cout << "status is " << ((status) ? "true" : "false") << std::endl;
   return status;
 }
 }

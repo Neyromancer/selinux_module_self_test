@@ -1,8 +1,8 @@
 /// \file selinux_module_test.h
-/// \brief
+/// \brief Заголовочный файл класса проверки наличия модуля SELinux.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
-/// \version 1.0.0.0
-/// \date 07.12.2018
+/// \version 1.0.0.1
+/// \date 17.01.2019
 
 #ifndef SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_MODULE_TEST_H_
 #define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_MODULE_TEST_H_
@@ -17,6 +17,9 @@ namespace fintech {
 /// \namespace security_self_tests.
 /// \brief Область видимости системы самотестирования.
 namespace security_self_tests {
+/// \class SelinuxModuleTest
+/// \class selinux_module_test.h
+/// \brief Класс тестирования наличия модуля SELinux.
 class SelinuxModuleTest: public SelinuxSystemTest {
  public:
   /// \brief Конструктор класса SelinuxModuleTest.

@@ -1,5 +1,6 @@
 /// \file selinux_config_sysconfig_selinux_test.h
-/// \brief
+/// \brief Заголовочный файл класса тестирования конфигурационного файла
+/// \brief selinux.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
 /// \version 1.0.0.0
 /// \date 22.12.2018
@@ -18,7 +19,7 @@ namespace fintech {
 /// \brief Область видимости системы самотестирования.
 namespace security_self_tests {
 
-/// \class SelinuxConfigSysconfigSelinuxTest
+/// \class SelinuxConfigSysconfigSelinuxTest.
 /// \class selinux_config_sysconfig_selinux_test.h
 /// \brief Класс тестирования конфигурационного файла selinux модуля SELinux.
 class SelinuxConfigSysconfigSelinuxTest: public SelinuxConfigTest {

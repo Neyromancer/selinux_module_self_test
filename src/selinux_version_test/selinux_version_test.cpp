@@ -1,5 +1,5 @@
 /// \file selinux_version_test.cpp
-/// \brief
+/// \brief Source файл класса SelinuxVersionTest.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
 /// \version 1.0.0.1
 /// \date 21.12.2018
