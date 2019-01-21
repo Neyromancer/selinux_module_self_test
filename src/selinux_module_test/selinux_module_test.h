@@ -47,7 +47,6 @@ class SelinuxModuleTest: public SelinuxSystemTest {
   std::string GetBootConfigFileName();
 
   bool is_selinux_module_exist_{false};
-   
 };
 }   // namespace security_self_test
 }   // namespace fintech

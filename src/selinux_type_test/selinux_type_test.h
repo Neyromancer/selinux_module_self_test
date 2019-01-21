@@ -9,6 +9,7 @@
 
 #include <string>
 
+#include "../selinux_config_test/selinux_config_test.h"
 #include "../selinux_system_test/selinux_system_test.h"
 
 /// \namespace fintech.
@@ -58,11 +59,18 @@ class SelinuxTypeTest: public SelinuxSystemTest {
   }
 
   /// \brief Парсит файл.
-  void ParseSelinuxConfig();
+  void ParseConfigFile() override;
+
+  /// \brief Возвращает состояние модуля SELinux.
+  /// \return Булево состояние SELinux.
+  bool IsSelinuxEnabled() const noexcept {
+    return is_selinux_enabled_;
+  }
 
   private:
     std::string selinux_status_{};
-    std::string selinux_type_{}; 
+    std::string selinux_type_{};
+    bool is_selinux_enabled_{false};
 };
 }  // namespace security_self_tests
 }  // namespace fintech
