@@ -57,16 +57,25 @@ class SelinuxSystemTest {
       return path_;
   }
 
-  /// \brief Возвращает статус пути.
+  /// \brief Возвращает результат проверки является ли переданный путь
+  /// \brief файлом.
   /// \return Статус пути.
   inline bool IsFileExist() const noexcept { 
     return is_file_exist_; 
   }
 
-  /// \brief Возвращает статус пути.
+  /// \brief Возвращает результат проверки является ли переданный путь
+  // \brief директорией.
   /// \return Статус пути.
   inline bool IsDirExist() const noexcept { 
     return is_dir_exist_; 
+  }
+
+  /// \brief Возвращает результат проверки является ли переданный путь
+  // \brief символьной ссылкой.
+  /// \return Статус пути.
+  inline bool IsSymlinkExist() const noexcept { 
+    return is_symlink_exist_; 
   }
 
  private:

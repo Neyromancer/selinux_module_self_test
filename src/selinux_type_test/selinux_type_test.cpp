@@ -14,7 +14,7 @@
 namespace fintech {
 namespace security_self_tests {
 
-//#define kSelinuxConfig "/etc/selinux/config"
+#define kSelinuxConfig "/etc/selinux/config"
 
 static std::string GetParameterValue(const std::string &, const std::string &);
 
@@ -25,8 +25,13 @@ void SelinuxTypeTest::ParseConfigFile() {
 
   selinux_status_ = GetParameterValue(kSelinuxConfig, "SELINUX");
   selinux_type_ = GetParameterValue(kSelinuxConfig, "SELINUXTYPE");
-  if (selinux_status_ && selinux_type_)
-    ValidateConfig(true);
+  auto status = false;
+  if (selinux_status_ && selinux_type_) {
+    status = true;
+    if (IsSymlinkExist() && GetPath() != kSelinuxConfig())
+      status = false;
+  }
+  ValidateConfig(status);
 
   if (selinux_status_ != "disabled")
     is_selinux_enabled_ = true;
