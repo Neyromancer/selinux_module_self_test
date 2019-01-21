@@ -4,8 +4,8 @@
 /// \version 1.0.0.0
 /// \date 22.12.2018
 
-#ifndef SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_CONFIG_TEST_H_
-#define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_CONFIG_TEST_H_
+#ifndef SELINUX_CONFIG_TEST_SELINUX_CONFIG_TEST_H_
+#define SELINUX_CONFIG_TEST_SELINUX_CONFIG_TEST_H_
 
 #include <cstdint>
 #include <stdexcept>
@@ -83,5 +83,5 @@ class SelinuxConfigTest: public SelinuxSystemTest {
 }   // namespace security_self_tests
 }   // namespace fintech
 
-#endif  // SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_CONFIG_TEST_H_
+#endif  // SELINUX_CONFIG_TEST_SELINUX_CONFIG_TEST_H_
 

@@ -1,5 +1,5 @@
 /// \file selinux_config_sysconfig_selinux_test.h
-/// \brief Заголовочный файл класса тестирования конфигурационного файла
+/// \brief Заголовочный файл класса тестирования конфигурационного файла.
 /// \brief selinux.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
 /// \version 1.0.0.0

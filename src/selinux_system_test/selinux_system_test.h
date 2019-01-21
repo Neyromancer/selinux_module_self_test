@@ -1,8 +1,8 @@
 /// \file selinux_system_test.h
 /// \brief
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
-/// \version 1.0.0.1
-/// \date 21.12.2018
+/// \version 1.0.0.2
+/// \date 21.01.2019
 
 #ifndef SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_SYSTEM_TEST_H_
 #define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_SYSTEM_TEST_H_
@@ -73,6 +73,7 @@ class SelinuxSystemTest {
   std::string path_{};
   bool is_file_exist_{false};
   bool is_dir_exist_{false};
+  bool is_symlink_exist_{false};
  
 };
 }   // namespace security_self_tests
