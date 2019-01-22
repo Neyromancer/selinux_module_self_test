@@ -1,16 +1,16 @@
 /// \file selinux_type_test.h
 /// \brief Заголовочный файл класса SelinuxTypeTest.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
-/// \version 1.0.0.1
-/// \date 17.01.2019
+/// \version 1.0.0.2
+/// \date 22.01.2019
 
-#ifndef SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_TYPE_TEST_H_
-#define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_TYPE_TEST_H_
+#ifndef SELINUX_TYPE_TEST_SELINUX_TYPE_TEST_H_
+#define SELINUX_TYPE_TEST_SELINUX_TYPE_TEST_H_
 
 #include <string>
 
 #include "../selinux_config_test/selinux_config_test.h"
-#include "../selinux_system_test/selinux_system_test.h"
+//#include "../selinux_system_test/selinux_system_test.h"
 
 /// \namespace fintech.
 /// \brief Область видимости проетков АО "ФИНТЕХ".
@@ -20,7 +20,7 @@ namespace fintech {
 namespace security_self_tests {
 /// \class SelinuxTypeTest selinux_type_test.h.
 /// \brief Класс проверки режима, в котором установлен SELinux.
-class SelinuxTypeTest: public SelinuxSystemTest {
+class SelinuxTypeTest: public SelinuxConfigTest {
  public:
   /// \brief Конструктор класса SelinuxTypeTest.
   SelinuxTypeTest() {}
@@ -75,4 +75,4 @@ class SelinuxTypeTest: public SelinuxSystemTest {
 }  // namespace security_self_tests
 }  // namespace fintech
 
-#endif  // SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_TYPE_TEST_H_
+#endif  // SELINUX_TYPE_TEST_SELINUX_TYPE_TEST_H_

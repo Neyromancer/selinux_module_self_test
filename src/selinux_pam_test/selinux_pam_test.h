@@ -1,11 +1,11 @@
 /// \file selinux_pam_test.h
 /// \brief Заголовочный файл класса SELinuxPamTest.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
-/// \version 1.0.0.0
-/// \date 13.12.2018
+/// \version 1.0.0.1
+/// \date 22.01.2019
 
-#ifndef SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_PAM_TEST_H_
-#define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_PAM_TEST_H_
+#ifndef SELINUX_PAM_TEST_SELINUX_PAM_TEST_H_
+#define SELINUX_PAM_TEST_SELINUX_PAM_TEST_H_
 
 #include "../selinux_system_test/selinux_system_test.h"
 
@@ -70,4 +70,4 @@ class SelinuxPamTest: public SelinuxSystemTest {
 }  // namespace security_self_tests
 }  // namespace fintech
 
-#endif  //  SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_PAM_TEST_H_
+#endif  //  SELINUX_PAM_TEST_SELINUX_PAM_TEST_H_

@@ -12,11 +12,11 @@ extern "C" {
 #include <unistd.h>
 }
 
+#include <exception>
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace fintech {
 namespace security_self_tests {
@@ -34,9 +34,9 @@ void SelinuxSystemTest::SetPath(const std::string &path) {
     is_file_exist_ = true; 
 
   if (!is_symlink_exist_)
-    is_symlink_exist = true;
+    is_symlink_exist_ = true;
 
-  if (!is_symlink_exist) {
+  if (!is_symlink_exist_) {
     path_ = path;
   } else {
     char *link_name = nullptr;
@@ -44,12 +44,12 @@ void SelinuxSystemTest::SetPath(const std::string &path) {
 
     link_name = (char *)malloc(buf_size);
     if (!link_name)
-      throw std::bad_alloc("could not allocate enough space");
+      std::cout << "could not allocate enough space" << std::endl;
 
     auto link_size = 0;
-    if ((link_size = readlink(path.to_str(), link_name, buf_size)) < 0) {
+    if ((link_size = readlink(path.c_str(), link_name, buf_size)) < 0) {
       free (link_name);
-      throw std::invaild_argument("wrong argument");
+      throw std::invalid_argument("wrong argument");
     }
 
     if (link_size >= buf_size) {
@@ -57,6 +57,8 @@ void SelinuxSystemTest::SetPath(const std::string &path) {
       throw std::invalid_argument("symlink increased in size");   // change to a appropriate exception
     }
 
+    
+    link_name[buf_size] = '\0';
     path_ = std::move(std::string(link_name));
     free(link_name);
   }
@@ -75,9 +77,9 @@ void SelinuxSystemTest::SetPath(std::string &&path) {
     is_file_exist_ = true; 
 
   if (!is_symlink_exist_)
-    is_symlink_exist = true;
+    is_symlink_exist_ = true;
 
-  if (!is_symlink_exist) {
+  if (!is_symlink_exist_) {
     path_ = path;
   } else {
     char *link_name = nullptr;
@@ -85,12 +87,12 @@ void SelinuxSystemTest::SetPath(std::string &&path) {
 
     link_name = (char *)malloc(buf_size);
     if (!link_name)
-      throw std::bad_alloc("could not allocate enough space");
+      std::cout << "could not allocate enough space" << std::endl;
 
     auto link_size = 0;
-    if ((link_size = readlink(path.to_str(), link_name, buf_size)) < 0) {
+    if ((link_size = readlink(path.c_str(), link_name, buf_size)) < 0) {
       free (link_name);
-      throw std::invaild_argument("wrong argument");
+      throw std::invalid_argument("wrong argument");
     }
 
     if (link_size >= buf_size) {

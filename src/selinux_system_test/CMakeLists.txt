@@ -1,3 +1,3 @@
-add_library(selinux_system_test selinux_system_test.cpp)
+add_library(selinux_system_test STATIC selinux_system_test.cpp)
 target_include_directories(selinux_system_test PUBLIC
 ${CMAKE_CURRENT_SOURCE_DIR})

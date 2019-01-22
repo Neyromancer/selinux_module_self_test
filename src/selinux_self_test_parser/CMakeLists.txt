@@ -1,0 +1,2 @@
+add_library(selinux_self_test_parser STATIC selinux_self_test_parser.cpp)
+target_link_libraries(selinux_self_test_parser selinux_config_test)

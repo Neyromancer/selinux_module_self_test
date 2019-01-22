@@ -1,2 +1,2 @@
-add_library(selinux_module_test selinux_module_test.cpp)
+add_library(selinux_module_test STATIC selinux_module_test.cpp)
 target_link_libraries(selinux_module_test selinux_system_test)

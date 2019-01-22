@@ -1,11 +1,11 @@
 /// \file selinux_version_test.h
 /// \brief Заголовочный файл класса SelinuxVersionTest.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
-/// \version 1.0.0.2
-/// \date 17.01.2019
+/// \version 1.0.0.3
+/// \date 22.01.2019
 
-#ifndef SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_VERSION_TEST_H_
-#define SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_VERSION_TEST_H_
+#ifndef SELINUX_VERSION_TEST_SELINUX_VERSION_TEST_H_
+#define SELINUX_VERSION_TEST_SELINUX_VERSION_TEST_H_
 
 #include "../selinux_system_test/selinux_system_test.h"
 
@@ -68,4 +68,4 @@ class SelinuxVersionTest: public SelinuxSystemTest {
 }  // namespace security_self_tests
 }  // namespace fintech
 
-#endif  // SECURITY_SELF_TEST_SECURITY_TESTS_SELINUX_TEST_SELINUX_VERSION_TEST_H_
+#endif  // SELINUX_VERSION_TEST_SELINUX_VERSION_TEST_H_
