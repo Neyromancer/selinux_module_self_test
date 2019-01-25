@@ -1,0 +1,2 @@
+add_library(selinux_version_test STATIC selinux_version_test.cpp)
+target_link_libraries(selinux_version_test selinux_system_test)

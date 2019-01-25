@@ -1,0 +1,2 @@
+add_library(selinux_pam_test STATIC selinux_pam_test.cpp)
+target_link_libraries(selinux_pam_test selinux_system_test)
