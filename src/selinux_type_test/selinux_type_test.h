@@ -59,7 +59,7 @@ class SelinuxTypeTest: public SelinuxConfigTest {
   }
 
   /// \brief Парсит файл.
-  void ParseConfigFile() override;
+  void ParseConfigFile() /*override*/;
 
   /// \brief Возвращает состояние модуля SELinux.
   /// \return Булево состояние SELinux.

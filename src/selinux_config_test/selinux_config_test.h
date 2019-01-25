@@ -48,7 +48,7 @@ class SelinuxConfigTest: public SelinuxSystemTest {
   SelinuxConfigTest &operator=(SelinuxConfigTest &&selinux_config_test) = default;
 
   /// \brief Парсит конфигурационный файл.
-  virtual void ParseConfigFile() = 0;
+//  virtual void ParseConfigFile() = 0;
 
   /// \brief Возвращает размер конфигурационного файла.
   /// \return Размер конфигурационного файла.
@@ -61,7 +61,8 @@ class SelinuxConfigTest: public SelinuxSystemTest {
     is_config_valid_ = status;
   }
 
-  /// \brief 
+  /// \brief Возвращает состояние конфигурационного файла.
+  /// \return Состояние конфигурационного файла.
   inline bool IsConfigValid() const noexcept {
     return is_config_valid_;
   }

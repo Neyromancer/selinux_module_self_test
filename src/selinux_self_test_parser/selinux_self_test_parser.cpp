@@ -15,25 +15,25 @@ void SelinuxSelfTestParser::ParseConfigFile() {
   if (!IsFileExist())
     throw std::invalid_argument("invalid config file path");
   
-  std::ifstream fd;
+  std::ifstream fd (GetPath());
   if (fd.is_open()) {
     std::string line{};
     auto is_file = false;
     auto is_dir = false;
     while (std::getline(fd, line)) {
-      if (line == "[file]")
-        is_file = true;
-
       if (line == "[dir]") {
         is_dir = true;
         is_file = false;
       }
 
-      if (!is_dir && is_file)
+      if (!is_dir && is_file && !line.empty())
         SetLstFile(line);
 
-      if (!is_file && is_dir)
+      if (!is_file && is_dir && !line.empty())
         SetLstDir(line);
+
+      if (line == "[file]")
+        is_file = true;
     }
   }
 }

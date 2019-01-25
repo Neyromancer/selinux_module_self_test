@@ -11,7 +11,7 @@
 
 int main(void) {
   fintech::security_self_tests::SelinuxSelfTestEngine seself_test_engine;
-  seself_test_engine.ProcessSelinuxSelfTest();
+  seself_test_engine.ProcessSelinuxSelfTests();
 
   return EXIT_SUCCESS;
 }

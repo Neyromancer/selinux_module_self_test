@@ -13,8 +13,10 @@ extern "C" {
 }
 
 #include <exception>
+#include <cerrno>
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <iostream>
 #include <string>
 
@@ -22,18 +24,23 @@ namespace fintech {
 namespace security_self_tests {
 
 void SelinuxSystemTest::SetPath(const std::string &path) {
-  struct stat sb;
-  if (lstat(path.c_str(), &sb) == -1)
+  std::cout << "path: " << path << std::endl; 
+  struct stat sb{};
+  if (lstat(path.c_str(), &sb) == -1) {
+    std::cout << "lstat: " << std::strerror(errno) << std::endl;
     throw std::invalid_argument("wrong path");
+  }
 
   if (S_IFDIR == (sb.st_mode & S_IFMT)) {
     is_dir_exist_ = true;
   }
 
-  if (!is_dir_exist_)
+  if (S_IFREG == (sb.st_mode & S_IFMT) || 
+      S_ISREG(sb.st_mode & S_IFMT))
     is_file_exist_ = true; 
 
-  if (!is_symlink_exist_)
+  if (S_IFLNK == (sb.st_mode & S_IFMT) ||
+      S_ISLNK(sb.st_mode & S_IFMT))
     is_symlink_exist_ = true;
 
   if (!is_symlink_exist_) {
@@ -65,22 +72,24 @@ void SelinuxSystemTest::SetPath(const std::string &path) {
 }
 
 void SelinuxSystemTest::SetPath(std::string &&path) {
-  struct stat sb;
-  if (stat(path.c_str(), &sb) == -1)
+  struct stat sb{};
+  std::cout << "path: " << path << std::endl; 
+  if (lstat(path.c_str(), &sb) == -1)
     throw std::invalid_argument("wrong path");
 
-  if (S_IFDIR == (sb.st_mode & S_IFMT)) {
+  if (S_IFDIR == (sb.st_mode & S_IFMT))
     is_dir_exist_ = true;
-  }
 
-  if (!is_dir_exist_)
+  if (S_IFREG == (sb.st_mode & S_IFMT) || 
+      S_ISREG(sb.st_mode & S_IFMT))
     is_file_exist_ = true; 
 
-  if (!is_symlink_exist_)
+  if (S_IFLNK == (sb.st_mode & S_IFMT) ||
+      S_ISLNK(sb.st_mode & S_IFMT))
     is_symlink_exist_ = true;
 
   if (!is_symlink_exist_) {
-    path_ = path;
+    path_ = std::move(path);
   } else {
     char *link_name = nullptr;
     auto buf_size = sb.st_size + 1;
@@ -97,7 +106,7 @@ void SelinuxSystemTest::SetPath(std::string &&path) {
 
     if (link_size >= buf_size) {
       free (link_name);
-      throw std::invalid_argument("symlink increased in size");   // change to a appropriate exception
+      throw std::invalid_argument("symlink increased in size");   // change to an appropriate exception
     }
 
     path_ = std::move(std::string(link_name));

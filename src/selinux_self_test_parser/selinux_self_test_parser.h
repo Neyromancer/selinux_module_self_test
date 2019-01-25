@@ -1,5 +1,5 @@
 /// \file selinux_self_test_parser.h
-/// \brief
+/// \brief Заголовок класса чиатющего глобальный конфигурационный файл.
 /// \author Dmitry Kormulev <kormulev@fintech.ru>
 /// \version 1.0.0.0
 /// \date 22.01.2019
@@ -22,7 +22,7 @@ namespace security_self_tests {
 class SelinuxSelfTestParser: public SelinuxConfigTest {
  public:
   /// \brief Конструктор класса SelinuxSelfTestParser.
-  SelinuxSelfTestParser();
+  SelinuxSelfTestParser() {}
   
   /// \brief Деструктор класса SelinuxSelfTestParser.
   ~SelinuxSelfTestParser() = default;
@@ -44,7 +44,7 @@ class SelinuxSelfTestParser: public SelinuxConfigTest {
   SelinuxSelfTestParser &operator=(SelinuxSelfTestParser &&separam) = default;
 
   /// \brief Парсит конфигурационный файл.
-  void ParseConfigFile() override;
+  void ParseConfigFile() /*override*/;
 
   /// \brief Дополняет список файлов.
   /// \param[in] fpath Путь до файла.

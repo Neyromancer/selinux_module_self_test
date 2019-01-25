@@ -4,8 +4,8 @@
 /// \version 1.0.0.0
 /// \date 22.01.2019
 
-#ifndef SELINUX_ENGINE_H_
-#define SELINUX_ENGINE_H_
+#ifndef SELINUX_SELF_TEST_ENGINE_H_
+#define SELINUX_SELF_TEST_ENGINE_H_
 
 #include <memory>
 #include <string>
@@ -29,7 +29,7 @@ namespace security_self_tests {
 class SelinuxSelfTestEngine {
  public:
   /// \brief Конструктор класса SelinuxSelfTestEngine.
-  SelinuxSelfTestEngine();
+  SelinuxSelfTestEngine() {}
 
   /// \brief Деструктор класса SelinuxSelfTestEngine.
   ~SelinuxSelfTestEngine() = default;
@@ -56,15 +56,15 @@ class SelinuxSelfTestEngine {
   void ProcessSelinuxSelfTests();
 
  private:
-  std::unique_ptr<SelinuxConfigTest> selinux_config_test_{};
-  SelinuxModuleTest selinux_module_test_{;
+  SelinuxConfigTest selinux_config_test_{};
+  SelinuxModuleTest selinux_module_test_{};
   SelinuxPamTest selinux_pam_test_{};
   SelinuxTypeTest selinux_type_test_{};
   SelinuxVersionTest selinux_version_test_{};
-  //SelinuxSelfTestParser selinux_self_test_parser_{};
+  SelinuxSelfTestParser selinux_self_test_parser_{};
 };
 }   // namespace security_self_test
 }   // namespace fintech
 
-#endif  // SELINUX_ENGINE_H_
+#endif  // SELINUX_SELF_TEST_ENGINE_ENGINE_H_
 
